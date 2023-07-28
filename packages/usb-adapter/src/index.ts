@@ -14,7 +14,6 @@ const IFACE_CLASS = {
   PRINTER: 0x07,
   HUB: 0x09,
 };
-
 export default class USBAdapter extends Adapter<[]> {
   device: usb.Device | null = null;
   endpoint: OutEndpoint | null = null;
