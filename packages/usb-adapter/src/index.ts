@@ -1,5 +1,4 @@
 import os from "os";
-
 import { Adapter } from "@node-escpos/adapter";
 import type { Interface, InEndpoint, OutEndpoint, LibUSBException } from "usb";
 import { usb, getDeviceList, findByIds } from "usb";
@@ -27,8 +26,7 @@ export default class USBAdapter extends Adapter<[]> {
     const self = this;
     if (vid && pid && typeof vid === "number") {
       this.device = findByIds(vid, pid) || null;
-    }
-    else if (vid && vid instanceof usb.Device) {
+    } else if (vid && vid instanceof usb.Device) {
       // Set specific USB device from devices array as coming from USB.findPrinter() function.
       // for example
       // let devices = escpos.USB.findPrinter();
@@ -39,8 +37,9 @@ export default class USBAdapter extends Adapter<[]> {
     }
     else {
       const devices = USBAdapter.findPrinter();
-      if (devices && devices.length)
+      if (devices && devices.length){
         this.device = devices[0];
+      }
     }
     if (!this.device)
       throw new Error("Can not find printer");
@@ -49,6 +48,7 @@ export default class USBAdapter extends Adapter<[]> {
       if (device === self.device) {
         self.emit("detach", device);
         self.emit("disconnect", device);
+        /** usbDetection stop Monitoring**/
         self.device = null;
       }
     });
@@ -100,7 +100,8 @@ export default class USBAdapter extends Adapter<[]> {
                   iface.detachKernelDriver();
                 }
                 catch (e) {
-                  console.error("[ERROR] Could not detatch kernel driver: %s", e);
+                  callback?.(new Error(`[ERROR] Could not detach kernel driver: ${e}`));
+                  //console.error("[ERROR] Could not detatch kernel driver: %s", e);
                 }
               }
             }
