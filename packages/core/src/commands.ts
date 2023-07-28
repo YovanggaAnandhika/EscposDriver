@@ -147,8 +147,8 @@ export const TEXT_FORMAT = {
   TXT_UNDERL2_ON: "\x1B\x2D\x02", // Underline font 2-dot ON
   TXT_BOLD_OFF: "\x1B\x45\x00", // Bold font OFF
   TXT_BOLD_ON: "\x1B\x45\x01", // Bold font ON
-  TXT_ITALIC_OFF: "\x1B\x35", // Italic font ON
-  TXT_ITALIC_ON: "\x1B\x34", // Italic font ON
+  TXT_ITALIC_OFF: "\x1B\x34\x00", // Italic font OFF
+  TXT_ITALIC_ON: "\x1B\x34\x01", // Italic font ON
 
   TXT_FONT_A: "\x1B\x4D\x00", // Font type A
   TXT_FONT_B: "\x1B\x4D\x01", // Font type B
@@ -316,3 +316,89 @@ export const COLOR = {
   REVERSE: "\x1DB1", // Reverses the colors - white text on black background
   UNREVERSE: "\x1DB0", // Default: undo the reverse - black text on white background
 };
+
+/**
+ * Receipt Enhancements as defining a static bottom or top logo
+ * @type {string}
+ */
+export const RECEIPT_ENHANCEMENT = "\x1C\x28\x45";
+
+/**
+ * List of available character sets
+ * @type {Object}
+ */
+export const CHARACTER_SET = {
+  TM_T20: {     // Epson TM-T20II
+    US: 0,      // U.S.A
+    FR: 1,      // France
+    DE: 2,      // Germany
+    EN: 3,      // England
+    DK: 4,      // Denmark
+    SE: 5,      // Sweden
+    IT: 6,      // Italy
+    ES: 7,      // Spain
+    JP: 8,      // Japan
+    NO: 9,      // Norway
+    DK_2: 10,   // Denmark II
+    ES_2: 11,   // Spain II
+    LATIN_A: 12,// Latin America
+    KR: 13,     // Korea
+    SI: 14,     // Slovenia
+    HR: 14,     // Croatia
+    CN: 15,     // China
+    VN: 16,     // Vietnam
+    ARABIA: 17  // Arabia
+  }
+}
+
+/**
+ * Character Code Table
+ */
+export const CHARACTER_CODE_TABLE = {
+  TM_T20: {
+    PC437: 0,       // USA: Standard Europe
+    KATAKANA: 1,    // Katakana
+    PC850: 2,       // Multilingual
+    PC860: 3,       // Portuguese
+    PC863: 4,       // Canadian-French
+    PC865: 5,       // Nordic
+    PC851: 11,      // Greek
+    PC853: 12,      // Turkish
+    PC857: 13,      // Turkish
+    PC737: 14,      // Greek
+    ISO8859_7: 15,  // ISO8859-7 (Greek)
+    WPC1252: 16,    // WPC1252
+    PC866: 17,      // Cyrillic #2
+    PC852: 18,      // Latin2
+    PC858: 19,      // Euro
+    KU42: 20,       // Thai
+    TIS11: 21,      // Thai
+    TIS18: 26,      // Thai
+    TCVN_3: 30,     // Vietnamese
+    TCVN_3_2: 31,   // Vietnamese
+    PC720: 32,      // Arabic
+    WPC775: 33,     // Baltic Rim
+    PC855: 34,      // Cyrillic
+    PC861: 35,      // Icelandic
+    PC862: 36,      // Hebrew
+    PC864: 37,      // Arabic
+    PC869: 38,      // Greek
+    ISO8859_2: 39,  // ISO8859-2 (Latin2)
+    ISO8859_15: 40, // ISO8859-15 (Latin9)
+    PC1098: 41,     // Farsi
+    PC1118: 42,     // Lithuanian
+    PC1119: 43,     // Lithuanian
+    PC1125: 44,     // Ukrainian
+    WPC1250: 45,    // Latin2
+    WPC1251: 46,    // Cyrillic
+    WPC1253: 47,    // Greek
+    WPC1254: 48,    // Turkish
+    WPC1255: 49,    // Hebrew
+    WPC1256: 50,    // Arabic
+    WPC1257: 51,    // Baltic Rim
+    WPC1258: 52,    // Vietnamese
+    KZ_1048: 53,    // KZ-1048 (Kazakhstan)
+    USER_PAGE2: 254,// User-defined page
+    USER_PAGE1: 255 // User-defined page
+  }
+}
